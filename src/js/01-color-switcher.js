@@ -14,8 +14,8 @@ function ClickedStartButton() {
 }
 
 function ClickedStopButton() {
-  stopBtn.disabled = true;
   startBtn.disabled = false;
+  stopBtn.disabled = true;
   clearInterval(timerId);
 }
 
