@@ -47,6 +47,7 @@ function countdown() {
     return;
   }
   updateTimerTable(convertMs(timeLeft));
+  paintedTimer();
 }
 
 function updateTimerTable({ days, hours, minutes, seconds }) {
@@ -54,17 +55,19 @@ function updateTimerTable({ days, hours, minutes, seconds }) {
   timerHours.textContent = addLeadingZero(hours);
   timerMinutes.textContent = addLeadingZero(minutes);
   timerSeconds.textContent = addLeadingZero(seconds);
+}
 
+function paintedTimer() {
   values.forEach(value => {
-    value.classList.add('red');
+    value.classList.add('paint');
   });
 
   if (timerDays.textContent <= 0) {
-    timerDays.classList.remove('red');
+    timerDays.classList.remove('paint');
   }
 
   if (timerHours.textContent <= 0 && timerDays.textContent <= 0) {
-    timerHours.classList.remove('red');
+    timerHours.classList.remove('paint');
   }
 
   if (
@@ -72,7 +75,7 @@ function updateTimerTable({ days, hours, minutes, seconds }) {
     timerHours.textContent <= 0 &&
     timerDays.textContent <= 0
   ) {
-    timerMinutes.classList.remove('red');
+    timerMinutes.classList.remove('paint');
   }
 
   if (
@@ -81,7 +84,7 @@ function updateTimerTable({ days, hours, minutes, seconds }) {
     timerHours.textContent <= 0 &&
     timerDays.textContent <= 0
   ) {
-    timerSeconds.classList.remove('red');
+    timerSeconds.classList.remove('paint');
   }
 }
 
